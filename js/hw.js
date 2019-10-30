@@ -80,3 +80,47 @@ function treeDigit() {
         alert("Wrong input!")
     }
 }
+
+function leapYear() {
+    let userInput = prompt('Enter a year');
+
+    year = Number(userInput);
+
+    console.log("year " + year);
+
+    if (year > 0 && year < Infinity) {
+
+        if ( !(year % 400) || (!(year % 4)) && !!(year % 100)) {
+            alert(`Year ${year} is leap year!`);
+        }
+        else {
+            alert(`Year ${year} is not leap year!`);
+        }
+    }
+    else {
+        alert("Wrong input!");
+    }
+}
+
+function palindrome() {
+    let userInput = prompt('Enter a 5 digit number');
+
+    data = Number(userInput);
+
+    console.log("data " + data);
+
+    if (data >= 0 && data <= 99999 && !(userInput == "")) {
+
+        if (userInput == userInput.split("").reverse().join("")) {
+
+            alert(`${userInput} is a palindrome!`);
+        }
+        else {
+            alert(`${userInput} is not a palindrome!`);
+        }
+    }
+    else {
+        alert("Wrong input!");
+    }
+}
+
