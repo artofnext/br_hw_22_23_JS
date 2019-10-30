@@ -124,3 +124,56 @@ function palindrome() {
     }
 }
 
+function convert() {
+    let amount = document.getElementById("amount").value;
+    let currency = document.getElementById("currency").value;
+    let rate = 0;
+
+    console.log('currency ' + currency);
+
+    switch (currency) {
+        case 'EUR':
+            rate = .9;
+            break;
+        case 'UAN':
+            rate = 7.142857142857143;
+            break;
+        case 'AZN':
+            rate = 1.7;
+            break;
+        default:
+            console.log('exception: wrong currency input');
+            rate = .9;
+    }
+
+    let result = amount * rate;
+
+    document.getElementById("result").innerHTML = result.toFixed(2);
+}
+
+function discount() {
+    let userInput = prompt('Enter a sum');
+
+    data = Number(userInput);
+
+    console.log("data " + data);
+
+    if (data >= 0 && data < Infinity && !(userInput == "")) {
+
+        if (data < 200) {
+            alert ("No discount!")
+        }
+        else if (data < 300) {
+            alert (`Discount ${data * 3 / 100}!`)
+        }
+        else if (data < 500) {
+            alert (`Discount ${data * 5 / 100}!`)
+        }
+        else {
+            alert (`Discount ${data * 7 / 100}!`)
+        }
+    }
+    else {
+        alert("Wrong input!");
+    }
+}

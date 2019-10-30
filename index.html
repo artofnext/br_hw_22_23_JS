@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,30 @@
     <meta name="author" content="Artofnext">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <button type="button" onclick="age()">Age</button>
-    <button type="button" onclick="symbols()">Symbols</button>
-    <button type="button" onclick="treeDigit()">3 digits</button>
-    <button type="button" onclick="leapYear()">Leap year</button>
-    <button type="button" onclick="palindrome()">Palindrome</button>
+    <div class="buttons">
+        <button type="button" onclick="age()">Age</button>
+        <button type="button" onclick="symbols()">Symbols</button>
+        <button type="button" onclick="treeDigit()">3 digits</button>
+        <button type="button" onclick="leapYear()">Leap year</button>
+        <button type="button" onclick="palindrome()">Palindrome</button>
+        <button type="button" onclick="discount()">Discount</button>
+    </div>
+
+    <div class="converter">
+        <input id="amount" type="number" placeholder="Amount in USD">
+        <input id="currency" list="current" placeholder="EUR">
+        <datalist id="current">
+            <option value="EUR" selected>EUR</option>
+            <option value="UAN">UAN</option>
+            <option value="AZN">AZN</option>
+        </datalist>
+        <button type="button" onclick="convert()">Convert!</button>
+        <p class="result" id="result"></p>
+    </div>
 
     <script src="js/hw.js"></script>
 </body>
+
 </html>
