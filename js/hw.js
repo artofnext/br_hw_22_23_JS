@@ -6,11 +6,11 @@ function age() {
     if (ageInput == "") {
         age = NaN;
     }
-
+// ToDo Use parseUnt()
     console.log("ageInput " + ageInput);
     console.log("age " + age);
     
-    if (toString(age) == "NaN") {
+    if (toString(age) == NaN) {
         console.log("age is NaN: " + age);
     }
     
@@ -124,32 +124,32 @@ function palindrome() {
     }
 }
 
-function convert() {
-    let amount = document.getElementById("amount").value;
-    let currency = document.getElementById("currency").value;
-    let rate = 0;
+// function convert() {
+//     let amount = document.getElementById("amount").value;
+//     let currency = document.getElementById("currency").value;
+//     let rate = 0;
 
-    console.log('currency ' + currency);
+//     console.log('currency ' + currency);
 
-    switch (currency) {
-        case 'EUR':
-            rate = .9;
-            break;
-        case 'UAN':
-            rate = 7.142857142857143;
-            break;
-        case 'AZN':
-            rate = 1.7;
-            break;
-        default:
-            console.log('exception: wrong currency input');
-            rate = .9;
-    }
+//     switch (currency) {
+//         case 'EUR':
+//             rate = .9;
+//             break;
+//         case 'UAN':
+//             rate = 7.142857142857143;
+//             break;
+//         case 'AZN':
+//             rate = 1.7;
+//             break;
+//         default:
+//             console.log('exception: wrong currency input');
+//             rate = .9;
+//     }
 
-    let result = amount * rate;
+//     let result = amount * rate;
 
-    document.getElementById("result").innerHTML = result.toFixed(2);
-}
+//     document.getElementById("result").innerHTML = result.toFixed(2);
+// }
 
 function discount() {
     let userInput = prompt('Enter a sum');
@@ -174,6 +174,79 @@ function discount() {
         }
     }
     else {
+        alert("Wrong input!");
+    }
+}
+
+function squareCircle() {
+    let userInputCircle = prompt('Enter a circle lenght');
+    let userInputSquare = prompt('Enter a square perimeter lenght');
+
+    let circle = parseInt(userInputCircle);
+    let square = parseInt(userInputSquare);
+
+    if (!isNaN(circle) && !isNaN(square)) {
+
+        let circleDiameter = circle / Math.PI;
+        let squareSide = square / 4;
+
+        if (circleDiameter > squareSide) {
+            alert("The circle doesn't fit the square");
+        } else {
+            alert("The circle fit the square!");
+        }
+
+    } else {
+        alert("Wrong input!");
+    }
+}
+
+function questionarie() {
+    let userInput1 = prompt('Question 1: what is the right answer?\n1 - wrong\n2 - wrong\n3 - true');
+    let userInput2 = prompt('Question 2: what is the right answer?\n1 - true\n2 - wrong\n3 - wrong');
+    let userInput3 = prompt('Question 3: what is the right answer?\n1 - wrong\n2 - true\n3 - wrong');
+
+    let result = 0;
+    let answer1 = parseInt(userInput1);
+    let answer2 = parseInt(userInput2);
+    let answer3 = parseInt(userInput3);
+
+    if (!isNaN(answer1) && !isNaN(answer2) && !isNaN(answer3) && 0 < answer1 && answer1 < 4 && 0 < answer2 && answer2 < 4 && 0 < answer3 && answer3 < 4) {
+        if (answer1 == 3) {
+            result += 2;
+        }
+        if (answer2 == 1) {
+            result += 2;
+        }
+        if (answer3 == 2) {
+            result += 2;
+        }
+
+        alert(`Score: ${result}!`)
+
+    } else {
+        alert("Wrong input!");
+    }
+}
+
+function dateNext() {
+    let userInput = prompt('Input date: ');
+
+    var msec = Date.parse(userInput);
+
+    console.log(msec);
+
+    if (!isNaN(msec)) {
+
+        var d = new Date(msec);
+        var dNext = new Date(msec + 8.64e+7); //Add a day in milliseconds
+
+        console.log(d);
+        console.log(dNext);
+
+        alert(`Your date: ${d},\nthe next day is ${dNext}`);
+
+    } else {
         alert("Wrong input!");
     }
 }
